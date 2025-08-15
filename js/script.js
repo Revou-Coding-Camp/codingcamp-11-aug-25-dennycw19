@@ -25,37 +25,39 @@ setInterval(changeBackground, 5000);
 welcomeUser();
 
 function welcomeUser() {
-    if (sessionStorage.getItem("name") === null) {
-        openGuestModal(); // open modal if name in session storage is null
-    } else {
-        welcomeName.textContent = sessionStorage.getItem("name");
-    }
+	if (sessionStorage.getItem("name") === null) {
+		openGuestModal(); // open modal if name in session storage is null
+	} else {
+		welcomeName.textContent = sessionStorage.getItem("name");
+	}
 }
 
 function openGuestModal() {
-    document.getElementById("guest-modal").classList.remove("hidden");
-    document.getElementById("guest-name-input").focus();
+	document.getElementById("guest-modal").classList.remove("hidden");
+	document.getElementById("guest-name-input").focus();
 }
 
 function closeGuestModal() {
-    document.getElementById("guest-modal").classList.add("hidden");
+	document.getElementById("guest-modal").classList.add("hidden");
 }
 
 function saveGuestName() {
-    const name = document.getElementById("guest-name-input").value.trim();
-    if (name) {
-        sessionStorage.setItem("name", name);
-        welcomeName.textContent = name;
-        closeGuestModal();
-    } else {
-        document.getElementById("alert-guest-name").classList.remove("hidden");
-    }
+	const name = document.getElementById("guest-name-input").value.trim();
+	if (name) {
+		sessionStorage.setItem("name", name);
+		welcomeName.textContent = name;
+		closeGuestModal();
+	} else {
+		document.getElementById("alert-guest-name").classList.remove("hidden");
+	}
 }
 
 // Hide alert blank guest name if input name is filled
-document.getElementById("guest-name-input").addEventListener("input", function () {
-    document.getElementById("alert-guest-name").classList.add("hidden");
-});
+document
+	.getElementById("guest-name-input")
+	.addEventListener("input", function () {
+		document.getElementById("alert-guest-name").classList.add("hidden");
+	});
 // ===========================================
 // republish
 // ==========================
@@ -142,6 +144,7 @@ function sendMessage(event) {
         <p><strong>Gender:</strong> ${gender}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
+        <p class="text-end text-sm text-gray-500">${getFormattedDateTime()}</p>
     `;
 	document.getElementById("no-message").classList.add("hidden");
 
@@ -157,4 +160,31 @@ document.getElementById("menu-btn").addEventListener("click", () => {
 	const menu = document.getElementById("mobile-menu");
 	menu.classList.toggle("hidden");
 });
+// ===========================================
+
+// ==========================
+// Get Formatted Date Time
+// ==========================
+function getFormattedDateTime() {
+	const now = new Date();
+
+	const day = String(now.getDate()).padStart(2, "0");
+	const month = String(now.getMonth() + 1).padStart(2, "0");
+	const year = now.getFullYear();
+
+	const hours = String(now.getHours()).padStart(2, "0");
+	const minutes = String(now.getMinutes()).padStart(2, "0");
+	const seconds = String(now.getSeconds()).padStart(2, "0");
+
+	// Get offset timezone in minute, then change to hour
+	const offsetMinutes = now.getTimezoneOffset();
+	const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+	const offsetMins = Math.abs(offsetMinutes) % 60;
+	const sign = offsetMinutes <= 0 ? "+" : "-"; // <= 0 mean GMT+
+	const gmt = `GMT${sign}${String(offsetHours).padStart(2, "0")}:${String(
+		offsetMins
+	).padStart(2, "0")}`;
+
+	return `${day}-${month}-${year} ${hours}:${minutes}:${seconds} ${gmt}`;
+}
 // ===========================================
