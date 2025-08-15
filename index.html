@@ -1,192 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruclate Portofolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" type="*" href="assets\fruclate_icon.ico">
-    <script src="css/style.css"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
-<body class="">
-    <header class="bg-[#4B352A] text-white mx-auto flex justify-between items-center p-4">
-        <div class="">
-            <img src="assets/fruclate_logo2.svg" alt="Fruclate Logo" class="h-16 w-auto">
-        </div>
-        <nav class="hidden md:flex space-x-6">
-            <a href="#home" class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200">Home</a>
-            <a href="#our-story" class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200">Our Story</a>
-            <a href="#products" class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200">Products</a>
-            <a href="#message-us" class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200">Message Us</a>
-        </nav>
-         <!-- Hamburger Menu Button (Mobile) -->
-        <div class="md:hidden">
-            <button id="menu-btn" class="focus:outline-none" title="Open Menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fruclate Portofolio</title>
 
-    
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#4B352A] text-white">
-        <nav class="flex flex-col p-4 space-y-4">
-            <a href="#home" class="hover:text-[#CA7842] transition">Home</a>
-            <a href="#our-story" class="hover:text-[#CA7842] transition">Our Story</a>
-            <a href="#products" class="hover:text-[#CA7842] transition">Products</a>
-            <a href="#message-us" class="hover:text-[#CA7842] transition">Message Us</a>
-        </nav>
-    </div>
+		<link rel="icon" type="*" href="assets/fruclate_icon.ico" />
+		<script src="css/style.css"></script>
 
-    <main>
-        <section id="home" class="h-screen bg-cover bg-center flex items-center justify-start pl-32 justify-center text-white text-3xl transition-all duration-1000">
-            <h1 class="text-shadow-lg/30">Hi <span id="welcome-user" class="font-semibold text-[#CA7842]"></span>!<br>Welcome to Fruclate</h1>
-        </section>
-        <section id="our-story" class="py-16 px-8 bg-[#F8F4F1] text-gray-800">
-            <div class="max-w-4xl mx-auto flex flex-col items-center">
-                <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center border-y-2 border-[#CA7842] px-6 py-2 text-center">Our Story</h1>
-                <p class="mb-4 text-justify">
-                    Founded in 2015 by three close friends in Bandung, West Java,
-                    <strong>Fruclate</strong> was born from a shared passion for crafting unique
-                    chocolate experiences. Our vision was simple yet ambitious — to create
-                    premium-quality chocolate infused with the natural essence of fruits, offering a
-                    distinctive taste that delights the senses.
-                </p>
-                <p class="mb-4 text-justify">
-                    Over the years, Fruclate has grown from a small home-based venture into a trusted
-                    brand loved by chocolate enthusiasts across the country. Each product is carefully
-                    crafted using only the finest cocoa beans and handpicked fruits, ensuring a
-                    harmonious blend of rich chocolate flavor and refreshing fruity notes.
-                </p>
-                <p class="mb-4 text-justify">
-                    At Fruclate, we believe that chocolate is more than just a treat — it’s a
-                    celebration of moments, emotions, and creativity. Our commitment to quality,
-                    innovation, and authenticity continues to drive us forward as we share our
-                    creations with the world.
-                </p>
-                <p class="text-3xl text-center text-[#CA7842] pt-8 text-shadow-lg text-shadow-gray-300" style="font-family: 'Pacifico', cursive;">
-            Share the Love, Savor Every Flavor
-        </p>
-            </div>
-        </section>
-        <section id="products" class="py-16 bg-gray-100 text-gray-800">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold border-y-2 border-[#CA7842] inline-block px-6 py-2">
-                    Products
-                </h1>
-                <p class="mt-4 text-lg text-gray-600">Our delicious chocolate flavors made with love</p>
-            </div>
+		<!-- Google Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+			rel="stylesheet"
+		/>
 
-            <!-- Grid Gambar -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-                
-                <!-- Item 1 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_strawberry-min.jpg" alt="Strawberry Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Strawberry Chocolate</h2>
-                </div>
+		<!-- Font Awesome CDN -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+			integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body class="">
+		<header
+			class="bg-[#4B352A] text-white mx-auto flex justify-between items-center p-4"
+		>
+			<div class="">
+				<img
+					src="assets/fruclate_logo2.svg"
+					alt="Fruclate Logo"
+					class="h-16 w-auto"
+				/>
+			</div>
+			<nav class="hidden md:flex space-x-6">
+				<a
+					href="#home"
+					class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200"
+					>Home</a
+				>
+				<a
+					href="#our-profile"
+					class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200"
+					>Our Profile</a
+				>
+				<a
+					href="#products"
+					class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200"
+					>Products</a
+				>
+				<a
+					href="#message-us"
+					class="hover:text-[#CA7842] hover:scale-110 transition-colors duration-200"
+					>Message Us</a
+				>
+			</nav>
+			<!-- Hamburger Menu Button (Mobile) -->
+			<div class="md:hidden">
+				<button id="menu-btn" class="focus:outline-none" title="Open Menu">
+					<svg
+						class="w-8 h-8"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"
+						></path>
+					</svg>
+				</button>
+			</div>
+		</header>
 
-                <!-- Item 2 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_jeruk-min.jpg" alt="Orange Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Orange Chocolate</h2>
-                </div>
+		<!-- Mobile Menu -->
+		<div id="mobile-menu" class="hidden md:hidden bg-[#4B352A] text-white">
+			<nav class="flex flex-col p-4 space-y-4">
+				<a href="#home" class="hover:text-[#CA7842] transition">Home</a>
+				<a href="#our-profile" class="hover:text-[#CA7842] transition"
+					>Our Profile</a
+				>
+				<a href="#products" class="hover:text-[#CA7842] transition">Products</a>
+				<a href="#message-us" class="hover:text-[#CA7842] transition"
+					>Message Us</a
+				>
+			</nav>
+		</div>
 
-                <!-- Item 3 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_mangga-min.jpg" alt="Mango Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Mango Chocolate</h2>
-                </div>
+		<main>
+			<!-- Section: Home -->
+			<section
+				id="home"
+				class="h-screen bg-cover bg-center flex items-center justify-start pl-32 justify-center text-white text-3xl transition-all duration-1000"
+			>
+				<h1 class="text-shadow-lg/30">
+					Hi
+					<span id="welcome-user" class="font-semibold text-[#CA7842]"></span
+					>!<br />Welcome to Fruclate
+				</h1>
+			</section>
 
-                <!-- Item 4 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_nanas-min.jpg" alt="Pineapple Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Pineapple Chocolate</h2>
-                </div>
+			<!-- Section: Our Profile -->
+			<section id="our-profile" class="py-16 px-8 bg-white text-gray-800">
+				<div class="max-w-5xl mx-auto">
+					<!-- Heading -->
+					<div class="text-center">
+						<h2 class="text-4xl font-bold tracking-wide text-[#4B352A]">
+							Our Profile
+						</h2>
+						<p class="mt-3 text-[#4B352A]/70">
+							Crafted for connoisseurs. Created to be remembered.
+						</p>
+						<div
+							class="mx-auto mt-6 h-[3px] w-24 rounded-full bg-[#CA7842]/80"
+						></div>
+					</div>
 
-                <!-- Item 5 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_blueberry-min.jpg" alt="Blueberry Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Blueberry Chocolate</h2>
-                </div>
+					<!-- Copywriting -->
+					<div class="mt-10 grid gap-10 md:grid-cols-12">
+						<div class="md:col-span-7 text-justify leading-relaxed">
+							<p class="mb-5">
+								At <strong>Fruclate</strong>, we redefine indulgence through the
+								art of chocolate-making. From our home in Bandung, West Java, we
+								bring together the richness of carefully selected cocoa and the
+								vibrant essence of fresh, handpicked fruit—curating flavors that
+								feel refined, modern, and unmistakably memorable.
+							</p>
+							<p class="mb-5">
+								Every piece we craft carries our signature: disciplined
+								technique, elevated taste, and quiet elegance. We honor
+								time-tested methods while welcoming innovation, ensuring each
+								bite is a harmony of texture, aroma, and depth—made for those
+								who appreciate the finer details.
+							</p>
+							<p class="mb-5">
+								Beyond taste, Fruclate stands for integrity. We collaborate with
+								local growers, uphold strict quality standards, and design with
+								intention—so that what you hold is not merely chocolate, but an
+								experience: thoughtful, beautiful, and worthy of life’s most
+								meaningful moments.
+							</p>
+							<p class="italic text-[#4B352A]/80">
+								Fruclate is where craftsmanship meets emotion—an invitation to
+								savor, to share, and to remember.
+							</p>
+						</div>
 
-                <!-- Item 6 -->
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110">
-                    <img src="assets/mockup_kiwi-min.jpg" alt="Raspberry Chocolate" class="w-full h-56 object-cover rounded-md">
-                    <h2 class="mt-4 text-xl font-semibold text-center">Kiwi Chocolate</h2>
-                </div>
+						<!-- Highlights Card -->
+						<div class="md:col-span-5">
+							<div class="rounded-2xl border border-[#B17457]/30 p-6 shadow-sm">
+								<h3 class="text-lg font-semibold text-[#4B352A] mb-3">
+									What Defines Us
+								</h3>
+								<ul class="space-y-3 text-sm text-gray-700">
+									<li class="flex gap-3">
+										<span class="mt-1 h-2 w-2 rounded-full bg-[#CA7842]"></span>
+										Premium cocoa and real fruit infusions—balanced with
+										precision.
+									</li>
+									<li class="flex gap-3">
+										<span class="mt-1 h-2 w-2 rounded-full bg-[#CA7842]"></span>
+										Heritage craft meets modern innovation for timeless flavor.
+									</li>
+									<li class="flex gap-3">
+										<span class="mt-1 h-2 w-2 rounded-full bg-[#CA7842]"></span>
+										Thoughtful design and packaging—elegant, purposeful,
+										memorable.
+									</li>
+									<li class="flex gap-3">
+										<span class="mt-1 h-2 w-2 rounded-full bg-[#CA7842]"></span>
+										Responsible sourcing with uncompromising quality standards.
+									</li>
+								</ul>
 
-            </div>
-        </section>
-        <section id="message-us" class="py-16 bg-[#F8F4F1] text-gray-800 item-stretch">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-2">
-                <!-- FORM -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                <h1 class="text-3xl font-bold mb-6 border-b-2 border-[#CA7842] inline-block px-2 pb-2">Message Us</h1>
-                <form id="message-form" class="space-y-4" onsubmit="sendMessage(event)">
-                    
-                    <!-- Name -->
-                    <div>
-                    <label for="name" class="block font-medium">Name</label>
-                    <input type="text" id="name" name="name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]" placeholder="Your name" required>
-                    </div>
+								<!-- Subtle Info Strip -->
+								<div
+									class="mt-6 grid grid-cols-3 divide-x divide-[#B17457]/20 rounded-lg border border-[#B17457]/20 overflow-hidden"
+								>
+									<div class="p-3 text-center">
+										<div class="text-base font-semibold text-[#4B352A]">
+											Since
+										</div>
+										<div class="text-sm text-gray-600">2015</div>
+									</div>
+									<div class="p-3 text-center">
+										<div class="text-base font-semibold text-[#4B352A]">
+											Origin
+										</div>
+										<div class="text-sm text-gray-600">Bandung, West Java</div>
+									</div>
+									<div class="p-3 text-center">
+										<div class="text-base font-semibold text-[#4B352A]">
+											Essence
+										</div>
+										<div class="text-sm text-gray-600">
+											Chocolate with Fruit
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                    <!-- Email -->
-                    <div>
-                    <label for="email" class="block font-medium">Email</label>
-                    <input type="email" id="email" name="email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]" placeholder="example@email.com" required>
-                    </div>
+					<!-- Closing Line -->
+					<div class="mt-12 text-center">
+						<p class="text-lg text-[#4B352A]">
+							Fruclate — Share the Love, Savor Every Flavor
+						</p>
+					</div>
+				</div>
+			</section>
 
-                    <!-- Jenis Kelamin (Radio) -->
-                    <div>
-                    <span class="block font-medium mb-1">Gender</span>
-                    <label class="inline-flex items-center mr-4">
-                        <input type="radio" name="gender" value="Male" class="form-radio text-[#CA7842]" required>
-                        <span class="ml-2">Male</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="gender" value="Female" class="form-radio text-[#CA7842]" required>
-                        <span class="ml-2">Female</span>
-                    </label>
-                    </div>
+			<!-- Section: Products -->
+			<section id="products" class="py-16 bg-gray-100 text-gray-800">
+				<div class="text-center mb-10">
+					<h2 class="text-4xl font-bold tracking-wide text-[#4B352A]">
+						Products
+					</h2>
+					<p class="mt-3 text-[#4B352A]/70">
+						Our delicious chocolate flavors made with love
+					</p>
+					<div
+						class="mx-auto mt-6 h-[3px] w-24 rounded-full bg-[#CA7842]/80"
+					></div>
+				</div>
 
-                    <!-- Message -->
-                    <div>
-                    <label for="message" class="block font-medium" >Message</label>
-                    <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]" maxlength="1000" placeholder="Your message maximum 1000 characters" required></textarea>
-                    </div>
+				<!-- Grid Products -->
+				<div
+					class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6"
+				>
+					<!-- Item 1 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_strawberry-min.jpg"
+							alt="Strawberry Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Strawberry Chocolate
+						</h2>
+					</div>
 
-                    <!-- Tombol -->
-                    <button type="submit" class="bg-[#CA7842] text-white px-6 py-2 rounded hover:bg-[#b46b3a] transition" title="Send Message">
-                    Send
-                    </button>
-                </form>
-                </div>
+					<!-- Item 2 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_jeruk-min.jpg"
+							alt="Orange Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Orange Chocolate
+						</h2>
+					</div>
 
-                <!-- HASIL PESAN -->
-                <div class="bg-white rounded-lg shadow-md p-6 ">
-                <h2 class="text-2xl font-bold mb-2 border-b-2 border-[#CA7842] pb-2">Your Messages</h2>
+					<!-- Item 3 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_mangga-min.jpg"
+							alt="Mango Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Mango Chocolate
+						</h2>
+					</div>
 
-                <div id="pesan-anda" class="space-y-4 h-[500px] overflow-y-auto">
-                    <small id="no-message" class="text-gray-400">There are no messages</small>
-                </div>
-            </div>
+					<!-- Item 4 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_nanas-min.jpg"
+							alt="Pineapple Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Pineapple Chocolate
+						</h2>
+					</div>
 
-            </div>
-        </section>
-    </main>
+					<!-- Item 5 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_blueberry-min.jpg"
+							alt="Blueberry Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Blueberry Chocolate
+						</h2>
+					</div>
 
-    <footer class="bg-[#B17457] text-white font-semibold text-center p-4">
-        <h1>Made by Denny Cahyo Widyatmoko</h1>
-    </footer>
-    <script src="js/script.js"></script>
-</body>
+					<!-- Item 6 -->
+					<div
+						class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center hover:scale-110"
+					>
+						<img
+							src="assets/mockup_kiwi-min.jpg"
+							alt="Raspberry Chocolate"
+							class="w-full h-56 object-cover rounded-md"
+						/>
+						<h2 class="mt-4 text-xl font-semibold text-center">
+							Kiwi Chocolate
+						</h2>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section: Message Us -->
+			<section
+				id="message-us"
+				class="py-16 bg-[#F8F4F1] text-gray-800 item-stretch"
+			>
+				<div
+					class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-2"
+				>
+					<!-- FORM -->
+					<div class="bg-white p-6 rounded-lg shadow-md">
+						<h1
+							class="text-3xl font-bold mb-6 border-b-2 border-[#CA7842] inline-block px-2 pb-2"
+						>
+							Message Us
+						</h1>
+						<form
+							id="message-form"
+							class="space-y-4"
+							onsubmit="sendMessage(event)"
+						>
+							<!-- Name -->
+							<div>
+								<label for="name" class="block font-medium">Name</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]"
+									placeholder="Your name"
+									required
+								/>
+							</div>
+
+							<!-- Email -->
+							<div>
+								<label for="email" class="block font-medium">Email</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]"
+									placeholder="example@email.com"
+									required
+								/>
+							</div>
+
+							<!-- Gender (Radio) -->
+							<div>
+								<span class="block font-medium mb-1">Gender</span>
+								<label class="inline-flex items-center mr-4">
+									<input
+										type="radio"
+										name="gender"
+										value="Male"
+										class="form-radio text-[#CA7842]"
+										required
+									/>
+									<span class="ml-2">Male</span>
+								</label>
+								<label class="inline-flex items-center">
+									<input
+										type="radio"
+										name="gender"
+										value="Female"
+										class="form-radio text-[#CA7842]"
+										required
+									/>
+									<span class="ml-2">Female</span>
+								</label>
+							</div>
+
+							<!-- Message -->
+							<div>
+								<label for="message" class="block font-medium">Message</label>
+								<textarea
+									id="message"
+									name="message"
+									rows="4"
+									class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#CA7842]"
+									maxlength="1000"
+									placeholder="Your message maximum 1000 characters"
+									required
+								></textarea>
+							</div>
+
+							<!-- Send Button -->
+							<button
+								type="submit"
+								class="bg-[#CA7842] text-white px-6 py-2 rounded hover:bg-[#b46b3a] transition"
+								title="Send Message"
+							>
+								Send
+							</button>
+						</form>
+					</div>
+
+					<!-- Show Messages -->
+					<div class="bg-white rounded-lg shadow-md p-6">
+						<h2
+							class="text-2xl font-bold mb-2 border-b-2 border-[#CA7842] pb-2"
+						>
+							Your Messages
+						</h2>
+
+						<div id="pesan-anda" class="space-y-4 h-[500px] overflow-y-auto">
+							<small id="no-message" class="text-gray-400"
+								>There are no messages</small
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-[#1F1B17] text-gray-300 font-light pt-12 pb-6">
+			<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+				<!-- Brand & Description -->
+				<div>
+					<img
+						src="assets/fruclate_logo2.svg"
+						alt="Fruclate Logo"
+						class="h-16 w-auto"
+					/>
+					<p class="text-sm leading-relaxed">
+						Crafting luxurious chocolate experiences since 2015 — where the
+						richness of cocoa meets the elegance of handpicked fruits.
+					</p>
+				</div>
+
+				<!-- Quick Links -->
+				<div>
+					<h2 class="text-lg font-semibold text-white">Quick Links</h2>
+					<ul class="space-y-2 text-sm">
+						<li>
+							<a href="#home" class="hover:text-[#CA9E67] transition">Home</a>
+						</li>
+						<li>
+							<a href="#our-profile" class="hover:text-[#CA9E67] transition"
+								>Our Profile</a
+							>
+						</li>
+						<li>
+							<a href="#products" class="hover:text-[#CA9E67] transition"
+								>Products</a
+							>
+						</li>
+						<li>
+							<a href="#message-us" class="hover:text-[#CA9E67] transition"
+								>Message Us</a
+							>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Contact & Social -->
+				<div>
+					<h3 class="text-lg font-semibold text-white mb-4">Get in Touch</h3>
+					<p class="text-sm">Bandung, West Java, Indonesia</p>
+					<p class="text-sm">
+						Email:
+						<a href="mailto:info@fruclate.com" class="hover:text-[#CA9E67]"
+							>info@fruclate.com</a
+						>
+					</p>
+					<div class="space-x-4 mt-4">
+						<a
+							href="#"
+							aria-label="Instagram"
+							class="hover:text-[#CA9E67] transition"
+						>
+							<i class="fab fa-instagram text-xl"></i>
+						</a>
+						<a
+							href="#"
+							aria-label="Facebook"
+							class="hover:text-[#CA9E67] transition"
+						>
+							<i class="fab fa-facebook text-xl"></i>
+						</a>
+						<a
+							href="#"
+							aria-label="Twitter"
+							class="hover:text-[#CA9E67] transition"
+						>
+							<i class="fab fa-twitter text-xl"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bottom Bar -->
+			<div
+				class="border-t border-gray-700 mt-8 pt-4 text-center text-xs text-gray-500"
+			>
+				© 2025 Fruclate. All rights reserved. | Crafted with ❤️ by Denny Cahyo
+				Widyatmoko
+			</div>
+		</footer>
+		<script src="js/script.js"></script>
+	</body>
 </html>
