@@ -79,17 +79,20 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 		// Tutup menu mobile terlebih dahulu
 		const mobileMenu = document.getElementById("mobile-menu");
-		if (mobileMenu) {
+		if (!mobileMenu.classList.contains("hidden")) {
 			mobileMenu.classList.add("hidden");
+			// Hitung tinggi navbar untuk offset
+			const navbar = document.querySelector("nav");
+			const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+			// Scroll ke target dengan offset
+			const targetId = this.getAttribute("href");
+			smoothScroll(targetId, 800, navbarHeight);
+		} else {
+			// Scroll ke target dengan offset
+			const targetId = this.getAttribute("href");
+			smoothScroll(targetId, 800, 0);
 		}
-
-		// Hitung tinggi navbar untuk offset
-		const navbar = document.querySelector("nav");
-		const navbarHeight = navbar ? navbar.offsetHeight : 0;
-
-		// Scroll ke target dengan offset
-		const targetId = this.getAttribute("href");
-		smoothScroll(targetId, 800, navbarHeight);
 	});
 });
 // ===========================================
