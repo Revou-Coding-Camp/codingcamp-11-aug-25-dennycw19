@@ -38,14 +38,15 @@ function welcomeUser() {
 // ===========================================
 
 // ==========================
-// Smooth Scroll dengan durasi custom
+// Smooth Scroll dengan durasi custom + offset navbar
 // ==========================
-function smoothScroll(targetId, duration) {
+function smoothScroll(targetId, duration, offset = 0) {
 	const target = document.querySelector(targetId);
 	if (!target) return;
 
 	const startPosition = window.scrollY;
-	const targetPosition = target.getBoundingClientRect().top;
+	// Tambahkan offset supaya tidak ketutupan navbar
+	const targetPosition = target.getBoundingClientRect().top - offset;
 	const startTime = performance.now();
 
 	function animationScroll(currentTime) {
@@ -75,11 +76,20 @@ function smoothScroll(targetId, duration) {
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
 	link.addEventListener("click", function (e) {
 		e.preventDefault();
-		const targetId = this.getAttribute("href");
-		smoothScroll(targetId, 800); // atur durasi di sini (ms)
 
-		// Tutup menu mobile setelah klik
-		document.getElementById("mobile-menu").classList.add("hidden");
+		// Tutup menu mobile terlebih dahulu
+		const mobileMenu = document.getElementById("mobile-menu");
+		if (mobileMenu) {
+			mobileMenu.classList.add("hidden");
+		}
+
+		// Hitung tinggi navbar untuk offset
+		const navbar = document.querySelector("nav");
+		const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+		// Scroll ke target dengan offset
+		const targetId = this.getAttribute("href");
+		smoothScroll(targetId, 800, navbarHeight);
 	});
 });
 // ===========================================
