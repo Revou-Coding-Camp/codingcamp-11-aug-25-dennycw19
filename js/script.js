@@ -23,18 +23,39 @@ setInterval(changeBackground, 5000);
 // Welcoming Speech
 // ==========================
 welcomeUser();
+
 function welcomeUser() {
-	if (sessionStorage.getItem("name") === null) {
-		let popup = "";
-		while (popup === null || popup.trim() === "") {
-			popup = prompt("Please enter your name: ");
-		}
-		sessionStorage.setItem("name", popup);
-		welcomeName.textContent = sessionStorage.getItem("name");
-	} else {
-		welcomeName.textContent = sessionStorage.getItem("name");
-	}
+    if (sessionStorage.getItem("name") === null) {
+        openGuestModal(); // open modal if name in session storage is null
+    } else {
+        welcomeName.textContent = sessionStorage.getItem("name");
+    }
 }
+
+function openGuestModal() {
+    document.getElementById("guest-modal").classList.remove("hidden");
+    document.getElementById("guest-name-input").focus();
+}
+
+function closeGuestModal() {
+    document.getElementById("guest-modal").classList.add("hidden");
+}
+
+function saveGuestName() {
+    const name = document.getElementById("guest-name-input").value.trim();
+    if (name) {
+        sessionStorage.setItem("name", name);
+        welcomeName.textContent = name;
+        closeGuestModal();
+    } else {
+        document.getElementById("alert-guest-name").classList.remove("hidden");
+    }
+}
+
+// Hide alert blank guest name if input name is filled
+document.getElementById("guest-name-input").addEventListener("input", function () {
+    document.getElementById("alert-guest-name").classList.add("hidden");
+});
 // ===========================================
 
 // ==========================
